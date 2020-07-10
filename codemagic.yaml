@@ -1,10 +1,1 @@
-workflows:
-  ios-app:
-    name: iOS App
-    environment:
-      xcode: latest
-      cocoapods: default
-    scripts:
-      - xcodebuild build -workspace "Runner.xcworkspace" -scheme "Runner" CODE_SIGN_IDENTITY="clima" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-    artifacts:
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+- xcode-project build-ipa --project "Runner.xcodeproj" --scheme "Runner"
