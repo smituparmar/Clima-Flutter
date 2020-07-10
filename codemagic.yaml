@@ -1,1 +1,1 @@
-- xcode-project build-ipa --project "Runner.xcodeproj" --scheme "Runner"
+- flutter build ios --debug --no-codesign
