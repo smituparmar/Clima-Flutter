@@ -2,6 +2,7 @@ import 'location_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/services/weather.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:io';
 
 double latitude;
 double longitude;
@@ -22,11 +23,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void getLocation() async {
     WeatherModel weatherModel = new WeatherModel();
     var weatherData = await weatherModel.getLocationWeather();
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LocationScreen(
-        locationWeather: weatherData,
-      );
-    }));
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return LocationScreen(
+            locationWeather: weatherData,
+          );
+        },
+      ),
+    );
+    exit(0);
   }
 
   @override
